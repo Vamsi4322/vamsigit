@@ -1,0 +1,45 @@
+1. We can createa docker image using docker compose file and using with docker command, docker buid -t image_name.
+
+2. Docker has 3 types of volumes,
+    1. Simple docker volume
+    2. shareble dockervolume 
+    3. Docker volune containers.
+
+1. Simple docker volume: It is used to store data only in host machine and it will helpful if containers were deleted.
+2. Shareble docker volume: These volumes are helpful to share b/w multiple computers.
+3. Docker Volume containers: These are bi directional containers which means, if we made changes in host machine same data will refelct in containers and if made chages in containers then data will also modified on host machinw.
+
+3. Please find below some of the container based commands,
+
+   1. docker containter ls --> it is used to show list of containers
+   2. docker rm container_ID/ container_ name
+   3. docker rm -f container_ID/ container_ name
+   4. docker start container_ID/ container_ name ---> used to start container
+   5. docker stop container_ID/ container_ name --- used to stop container
+   6. docker restart container_ID/ container_ name ---> used to restart container
+   7. docker restart -t 10 container_ID/ container_ name ---> it is used to restart container after 10 sec
+
+4. docker run --name: u1 -Pd Ubantu
+   apt-get update
+   apt-get install -y jenkins
+   
+5. vim dockercompose.yml
+---
+
+version: '3.8'
+
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - "8080:80"
+    depends_on:
+      - postgres
+
+ postgres
+  image: postgress
+  environment:
+   POSTGRES USER: vamsi
+   POSTGRES_ROOT_PASSWORD: Password@1
+   
+...
